@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    @include respond(big-desktop) {
+        font-size: $html-font-size-1800-up;
+    }
+    @include respond(desktop) {
+        font-size: $html-font-size-1200-1800;
+    }
+    @include respond(tablet-landscape) {
+        font-size: $html-font-size-900-1200;
+    }
+    @include respond(tablet-portrait) {
+        font-size: $html-font-size-600-900;
+    }
+    @include respond(phone) {
+        font-size: $html-font-size-0-600;
+    }
+}
+
+body {
+    box-sizing: border-box;
+}
+
+::selection {
+    // background-color: red;
+    // color: $color-white;
+}

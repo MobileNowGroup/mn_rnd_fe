@@ -1,0 +1,17 @@
+.scaled-img {
+    @include respond(big-desktop) {
+        transform: scale($html-font-size-1800-up/$html-font-size-default);
+    }
+    @include respond(desktop) {
+        transform: scale($html-font-size-1200-1800/$html-font-size-default);
+    }
+    @include respond(tablet-landscape) {
+        transform: scale($html-font-size-900-1200/$html-font-size-default);
+    }
+    @include respond(tablet-portrait) {
+        transform: scale($html-font-size-600-900/$html-font-size-default);
+    }
+    @include respond(phone) {
+        transform: scale($html-font-size-0-600/$html-font-size-default);
+    }
+}

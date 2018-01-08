@@ -1,0 +1,48 @@
+.panel {
+  background-image: image-set('../img/panel-bg.jpg' 1x, '../img/panel-bg@2x.jpg' 2x, '../img/panel-bg@3x.jpg' 3x);
+  background-size: cover;
+  height: 100%;
+  position: relative;
+
+  &__header {
+    height: 4.2rem;
+  }
+
+  &__close-button {
+    width: 1rem;
+    height: 1rem;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+    top: 1rem;
+    left: 16.7rem;
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 2rem;
+    width: 15.2rem;
+  }
+
+  &__items-container::before {
+    content: 'WAREHOUSE';
+    color: $color-gray-text-1;
+    font-size: .9rem;
+    font-stretch: condensed;
+    position: absolute;
+    top: 4.2rem;
+    left: 1.7rem;
+  }
+}

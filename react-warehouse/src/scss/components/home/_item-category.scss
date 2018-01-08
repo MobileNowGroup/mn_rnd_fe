@@ -1,0 +1,32 @@
+.item-category {
+  width: 25%;
+  height: 100%;
+  // background-image: url(../img/item-category-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $color-gray-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &__icon {
+    margin-bottom: 2rem;
+  }
+
+  &__name {
+    font-size: 1.05rem;
+	  font-weight: 300;
+	  line-height: 1.24;
+    color: $color-blue-1;
+    text-transform: uppercase;
+  }
+
+  &__collection {
+    font-size: .7rem;
+	  font-weight: 500;
+    color: $color-blue-2;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,22 @@
+.figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  &__img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+  }
+
+  &_caption {
+    font-weight: 900;
+    color: $color-gray-medium;
+    font-size: .8rem;
+    line-height: 1.04;
+    margin-top: .9rem;
+  }
+}

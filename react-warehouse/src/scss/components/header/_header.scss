@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  height: 33.2rem;
+  background-color: $color-gray-dark;
+  overflow: hidden;
+
+  &__container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-areas: "slider designer navigation";
+    grid-template-columns: 60% 1fr 3.5rem;
+    grid-template-rows: 100%
+  }
+
+  &__logo-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__logo {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &__slider-container {
+    position: relative;
+    grid-area: slider;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__slider {
+    width: 17.2rem;
+    height: 14.2rem;
+    background-color: #f9c34a;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 100;
+    -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+    &-img-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -120%);
+
+      &::before {
+        content: '';
+        background-image: image-set('../img/left-arrow.png' 1x, '../img/left-arrow@2x.png' 2x, '../img/left-arrow@3x.png' 3x);
+        background-repeat: no-repeat;
+        width: 3.5px;
+        height: .7rem;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: red;
+        }
+      }
+
+      &::after {
+        content: '';
+        background-image: image-set('../img/right-arrow.png' 1x, '../img/right-arrow@2x.png' 2x, '../img/right-arrow@3x.png' 3x);
+        background-repeat: no-repeat;
+        width: 3.5px;
+        height: .7rem;
+        position: absolute;
+        top: 1rem;
+        right: -1rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__photo {
+    align-self: flex-end;
+    background-image: image-set('../img/img-pepper.png' 1x, '../img/img-pepper@2x.png' 2x, '../img/img-pepper@3x.png' 3x);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $color-gray-dark;
+    background-blend-mode: multiply;
+    width: 20.7rem;
+    height: 26.1rem;
+    margin-bottom: -1.4rem;
+  }
+
+  &__heading {
+    margin-top: -10rem;
+    z-index: 101;
+  }
+
+  &__designer {
+    grid-area: designer;
+    padding-top: 7.3rem;
+    padding-bottom: 10.8rem;
+  }
+
+  &_navigation-container {
+    grid-area: navigation;
+  }
+
+  &__panel-container {
+    transition: width .1s;
+
+    &--show {
+      width: 19.2rem;
+    }
+
+    &--hidden {
+      width: 0;
+    }
+  }
+}

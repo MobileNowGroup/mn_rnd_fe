@@ -1,0 +1,52 @@
+.item-detail {
+  width: 75%;
+  height: 100%;
+  background-color: $color-gray-light;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  &__heading {
+    color: $color-gray-text-2;
+    align-self: flex-start;
+    margin-top: 3rem;
+  }
+
+  &__name {
+    font-size: 1.42rem;
+    font-weight: 300;
+    margin-bottom: .8rem;
+  }
+
+  &__price {
+    font-size: 1.36rem;
+    font-weight: 300;
+    margin-bottom: 2.1rem;
+  }
+
+  &__fav-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+  }
+
+  &__fav-icon {
+    fill: #777;
+    margin-right: .3rem;
+  }
+
+  &__fav-text {
+    font-size: .95rem;
+	  font-weight: 300;
+    color: $color-gray-text-3;
+  }
+
+  &__photo {
+    align-self: flex-end;
+    width: 30%;
+  }
+}

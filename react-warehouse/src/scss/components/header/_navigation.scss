@@ -1,0 +1,28 @@
+.navigation {
+  height: 100%;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  &__item {
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__link {
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+    background-color: transparent;
+  }
+}
