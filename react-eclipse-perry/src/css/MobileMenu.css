@@ -1,0 +1,31 @@
+.mobile-menu {
+  /*display: block;*/
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 99999;
+}
+
+#mobile-menu-show {
+  display: block;
+}
+
+#mobile-menu-hide {
+  display: none;
+}
+
+.mobile-navigation-text {
+  color: #fff;
+  display: block;
+  font-family: "Gotham";
+  font-size: 20px;
+  line-height: 36px;
+  padding: 4px 26px;
+  text-transform: uppercase;
+}
+
+.mobile-navigation-text:hover {
+  color: purple;
+  text-decoration: none;
+}

@@ -1,0 +1,106 @@
+.section6-wrap {
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section6-left {
+  width: 100px;
+  /*background-color: red;*/
+}
+
+.section6-btn {
+  width: 50px;
+  height: 50px;
+  opacity: 0.5;
+  border-radius: 5px;
+  background-color: #242424;
+  margin-top: 150px;
+  /*margin-left: 50px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section6-btn:hover {
+  cursor: pointer;
+}
+
+.up-arrow {
+  /*background-color: green;*/
+  width: 17px;
+  height: 17px;
+}
+
+.section6-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  /*background-color: gray;*/
+  /*position: relative;*/
+}
+
+.section6-macbook {
+  display: block;
+  width: 757.5px;
+  height: auto;
+  position: relative;
+  /*background-color: green;*/
+  top: -300px;
+}
+
+.share-wrap {
+  position: relative;
+  top: -300px;
+  right: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 34px;
+  /*background-color: blue;*/
+}
+
+.twitter-btn, .facebook-btn {
+  width: 95px;
+  height: 34px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}
+
+.twitter-btn:hover, .facebook-btn:hover {
+  cursor: pointer;
+}
+
+.twitter-btn {
+  background-color: #69b6f2;
+}
+
+.facebook-btn {
+  background-color: #3a579a;
+}
+
+.twitter-icon {
+  width: 16px;
+  height: 13px;
+}
+
+.facebook-icon {
+  width: 11px;
+  height: 16px;
+}
+
+.share-text {
+  padding-left: 5px;
+  font-family: FiraSans;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 2.69;
+  text-align: right;
+  color: #ffffff;
+  /*background-color: red;*/
+}

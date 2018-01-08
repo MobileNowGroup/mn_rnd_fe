@@ -1,0 +1,113 @@
+.header {
+  height: 200px;
+  background-color: purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/*@media (max-width: 660px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}*/
+
+.logo {
+  position: relative;
+  top: 96px;
+  z-index: 2;
+  width: 68px;
+  height: 68px;
+  background-image: url('../images/icon.png');
+  background-size: 68px 68px;
+  background-repeat: no-repeat;
+  /*background-color: blue;*/
+}
+
+.logo-text {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.right-of-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /*background-color: yellow;*/
+  padding-top: 50px;
+}
+
+.navigation {
+  /*background-color: green;*/
+  width: 400px;
+  height: 60px;
+  /*margin-top: 70px;*/
+  margin-right: 20px;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  /*background-color: yellowgreen;*/
+}
+
+.navigation ul li {
+  /*background-color: gray;*/
+  width: 60px;
+  height: 60px;
+}
+
+.navigation-text, .login-text {
+  font-family: 'Gotham';
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 2.07;
+  color: white;
+  /*background-color: green;*/
+  text-decoration: none;
+}
+
+.login-button {
+  width: 129px;
+  height: 52px;
+  border-radius: 5px;
+  background-color: #a100ff;
+  border: 0;
+  margin-bottom: 30px;
+}
+
+.login-navlink {
+  /*background-color: gray;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+}
+
+.login-navlink:hover {
+  text-decoration: none;
+}
+
+.login-arrow {
+  width: 21px;
+  height: 21px;
+  margin-left: 20px;
+}
+
+.navigation-text:hover::after {
+  margin-top: 29px;
+  content: '';
+  display: block;
+  height: 3px;
+  width: 60px;
+  background-color: #28c8c6;
+}
+
+.navigation-text:hover {
+  text-decoration: none;
+  color: white;
+}

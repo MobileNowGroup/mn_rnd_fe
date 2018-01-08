@@ -1,0 +1,38 @@
+.section2-container {
+  height: 592px;
+  background-color: #ebeff3;
+  background-image: url('../images/section2-bg.png');
+  background-blend-mode: overlay;
+}
+
+.section2-title {
+  padding-top: 171px;
+  height: auto;
+  font-family: Gotham;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 0.73;
+  text-align: center;
+  color: #333b42;
+}
+
+.section2-content {
+  padding-top: 41px;
+  width: 661px;
+  height: auto;
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.79;
+  text-align: center;
+  color: #74797e;
+  margin: auto;
+}
+
+.iphone {
+  padding-top: 73px;
+  width: 423px;
+  height: auto;
+  object-fit: contain;
+  /*background-color: #28c8c6;*/
+}

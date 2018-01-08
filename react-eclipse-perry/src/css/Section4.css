@@ -1,0 +1,74 @@
+.section4-container {
+  height: 700px;
+  background-color: #f6f9fa;
+}
+
+.section4-title {
+  padding-top: 136px;
+  margin: auto;
+  width: 400px;
+  height: auto;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 0.97;
+  text-align: center;
+  color: #333b42;
+  display: block;
+}
+
+.section4-content {
+  padding-top: 28px;
+  margin: auto;
+  width: 661px;
+  height: auto;
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.79;
+  text-align: center;
+  color: #74797e;
+}
+
+.btn-group {
+  margin-top: 45px;
+  width: 570px;
+  height: 58px;
+  border-radius: 2px;
+  /*background-color: #28c8c6;*/
+  border: solid 1px #28c8c6;
+}
+
+.btn-secondary {
+  width: 145px;
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 2.07;
+  text-align: center;
+  color: #28c8c6;
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0;
+}
+
+.btn-secondary:hover, .btn-selected {
+  background-color: #28c8c6;
+  border-color: #28c8c6;
+  color: white;
+}
+
+.btn-secondary:focus {
+  box-shadow: 0 0 white;
+}
+
+.design-containner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 54px;
+  /*padding-left: 50px;
+  padding-right: 50px;*/
+  background-color: transparent;
+}

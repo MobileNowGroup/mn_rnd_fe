@@ -1,0 +1,24 @@
+.contact-us-container {
+  position: absolute;
+  right: -56.5px;
+  top: 756px;
+  height: 72px;
+  width: 185px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8500d2;
+  transform: rotate(-90deg);
+}
+
+.contact-us-text {
+  height: auto;
+  width: auto;
+  font-family: Gotham;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.75;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 23px;
+  /*padding-left: 48px;*/
+}

@@ -1,0 +1,34 @@
+.design-wrap {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.design-img {
+  width: 253px;
+  height: 136px;
+  /*object-fit: contain;*/
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.design-bottom-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.design-title {
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 1.79;
+  text-align: center;
+  color: #333b42;
+  /*background-color: green;*/
+}
+
+.design-arrow {
+  width: 8px;
+  height: 14px;
+  /*background-color: red;*/
+}

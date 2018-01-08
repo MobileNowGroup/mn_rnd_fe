@@ -1,0 +1,38 @@
+.section3-container {
+  height: 800px;
+}
+
+.section3-title {
+  padding-top: 140px;
+  margin: auto;
+  width: 300px;
+  height: auto;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 0.97;
+  text-align: center;
+  color: #333b42;
+  display: block;
+}
+
+.section3-content {
+  padding-top: 31px;
+  margin: auto;
+  width: 661px;
+  height: auto;
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.79;
+  text-align: center;
+  color: #74797e;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 61px;
+  justify-content: space-between;
+  align-items: center;
+}

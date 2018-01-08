@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-weight: bold;
+  src: url('./fonts/Gotham Bold.otf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  src: url('./fonts/Montserrat-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  src: url('./fonts/Montserrat-Regular.otf');
+}
+
+@font-face {
+  font-family: 'FiraSans';
+  font-weight: bold;
+  src: url('./fonts/FiraSans-Bold.otf');
+}

@@ -1,0 +1,38 @@
+.feature-container:not(:first-child) {
+  padding-left: 20px;
+  /*background: red;*/
+}
+
+.feature-image {
+  display: block;
+  /*background-color: green;*/
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.feature-title {
+  /*background-color: red;*/
+  display: block;
+  margin-top: 39px;
+  margin-bottom: 36px;
+  /*width: 224px;*/
+  height: 24px;
+  font-family: Gotham;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.71;
+  text-align: center;
+  color: #333b42;
+}
+
+.feature-content {
+  /*background-color: green;*/
+  display: block;
+  font-family: Gotham;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.79;
+  text-align: center;
+  color: #74797e;
+}

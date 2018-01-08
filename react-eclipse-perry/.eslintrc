@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    "object-curly-spacing": "off",
+    "quotes": "off",
+    "react/jsx-tag-spacing" : "off"
+  }
+}

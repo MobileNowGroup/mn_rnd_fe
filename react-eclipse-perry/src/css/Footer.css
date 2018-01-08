@@ -1,0 +1,40 @@
+.footer-wrap {
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-left ul {
+  text-align: left;
+}
+
+.footer-link, .footer-right span {
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 2.92;
+  text-align: left;
+  color: #8297a7;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #8297a7;
+}
+
+.footer-column1 {
+  margin-right: 40px;
+}
+
+.footer-right span {
+  text-align: right;
+}
