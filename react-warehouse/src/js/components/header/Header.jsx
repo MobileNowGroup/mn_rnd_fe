@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import logo from '../../../img/logo.svg';
-import Designer from '../home/Designer';
-import Navigation from './Navigation';
-import Panel from './Panel';
+import React, { Component } from "react";
+import logo from "../../../img/logo.svg";
+import Designer from "../home/Designer";
+import Navigation from "./Navigation";
+import Panel from "./Panel";
 
 class Header extends Component {
-  state = {showPanel: false,
-      activeId: -1};
+  state = {
+    showPanel: false,
+    activeId: -1
+  };
 
-  handleClick = (id) => {
+  handleClick = id => {
     if (id === 0) {
-      this.setState((prevState) => ({
-          showPanel: !prevState.showPanel,
-          activeId: id
-        }));
+      this.setState(prevState => ({
+        showPanel: !prevState.showPanel,
+        activeId: id
+      }));
     }
-  }
+  };
 
   render() {
     const { showPanel, activeId } = this.state;
-    const panelClassName =
-      `header__panel-container${ showPanel? ' header__panel-container--show': ' header__panel-container--hidden'}`;
+    const panelClassName = `header__panel-container${showPanel ? " header__panel-container--show" : " header__panel-container--hidden"}`;
     return (
       <div className="header">
         <div className="header__logo-container">
@@ -32,8 +33,8 @@ class Header extends Component {
               <div className="header__slider-img-container">
                 <img
                   className="header__slider-img scaled-img"
-                  src={require('../../../img/salt-bottle.png')}
-                  srcSet={`${require('../../../img/salt-bottle@2x.png')} 2x, ${require('../../../img/salt-bottle@3x.png')} 3x`}
+                  src={require("../../../img/salt-bottle.png")}
+                  srcSet={`${require("../../../img/salt-bottle@2x.png")} 2x, ${require("../../../img/salt-bottle@3x.png")} 3x`}
                   alt=""
                 />
               </div>
@@ -48,7 +49,7 @@ class Header extends Component {
           </div>
           <div className="header__designer">
             <Designer
-              img={require('../../../img/figure-img-1.jpg')}
+              img={require("../../../img/figure-img-1.jpg")}
               caption="BY MATERIA & NENDO"
               heading="Good     Things come in Paris"
             />
