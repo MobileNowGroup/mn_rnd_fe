@@ -6,17 +6,10 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-
   &__company-info {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-end;
-    // align-items: flex-start;
     margin-top: 8.5rem;
     margin-left: 2.4rem;
-
   }
-
   &__icon-container {
     display: flex;
     width: 35%;
@@ -24,19 +17,16 @@
     align-items: center;
     margin-bottom: 2.4rem;
   }
-
   &__icon {
     background-color: transparent;
   }
-
   &__desp {
     font-size: 8px;
-  	font-weight: 300;
-  	line-height: 1.0;
-  	text-align: right;
-  	color: #7c7a7a;
+    font-weight: 300;
+    line-height: 1.0;
+    text-align: right;
+    color: #7c7a7a;
   }
-
   &__company-logo {
     display: flex;
     flex-direction: column;
@@ -44,22 +34,19 @@
     align-items: center;
     padding-right: 6.5rem;
   }
-
   &__logo {
     width: 5.5rem;
     height: 5rem;
   }
-
   &__child {
     width: 5.5rem;
     height: 5rem;
   }
-
   &__title {
     margin-top: 1rem;
     font-size: 1.51rem;
-  	font-weight: 300;
-  	line-height: 0.94;
-  	color: #a7a2a2;
+    font-weight: 300;
+    line-height: 0.94;
+    color: #a7a2a2;
   }
 }
