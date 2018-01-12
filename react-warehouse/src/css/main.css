@@ -802,13 +802,13 @@ body {
   align-items: center;
   width: 7.5rem;
   height: 6rem;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
 .panel-item__name {
   margin-top: 1.1rem;
   font-weight: 900;
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #86d8cd;
 }
 
@@ -849,12 +849,12 @@ body {
   border-radius: 1.5rem;
 }
 
-.figure_caption {
+.figure__caption {
   font-weight: 900;
   color: #adada7;
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 1.04;
-  margin-top: .9rem;
+  margin-top: 0.9rem;
 }
 
 .item-section {

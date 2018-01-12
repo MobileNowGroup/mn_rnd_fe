@@ -3,6 +3,8 @@ import logo from "../../../img/logo.svg";
 import Designer from "../home/Designer";
 import Navigation from "./Navigation";
 import Panel from "./Panel";
+import { connect } from "react-redux";
+import togglePanel from "../../actions/panel";
 
 class Header extends Component {
   state = {
@@ -20,8 +22,12 @@ class Header extends Component {
   };
 
   render() {
-    const { showPanel, activeId } = this.state;
-    const panelClassName = `header__panel-container${showPanel ? " header__panel-container--show" : " header__panel-container--hidden"}`;
+    const { showPanel, activeId } = this.props;
+    const panelClassName = `header__panel-container${
+      showPanel
+        ? " header__panel-container--show"
+        : " header__panel-container--hidden"
+    }`;
     return (
       <div className="header">
         <div className="header__logo-container">
@@ -70,4 +76,19 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    showPanel: state.panel.showPanel,
+    activeId: state.panel.activeId
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    togglePanel: () => {
+      dispatch(togglePanel(!ownProps.showPanel));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import togglePanel from "../../actions/panel";
 
 class NavigationItem extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.onClick(this.props.id);
-  }
+  handleClick = () => {
+    // this.props.onClick(this.props.id);
+    this.props.togglePanel(!this.props.showPanel);
+  };
 
   render() {
     const { icons, isActive } = this.props;
@@ -28,4 +30,10 @@ class NavigationItem extends Component {
   }
 }
 
-export default NavigationItem;
+const mapStateToProps = state => {
+  return {
+    showPanel: state.panel.showPanel
+  };
+};
+
+export default connect(mapStateToProps, { togglePanel })(NavigationItem);

@@ -1,13 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import NavigationItem from "./NavigationItem";
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this
-      .handleClick
-      .bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(id) {
@@ -17,15 +15,23 @@ class Navigation extends Component {
   }
 
   render() {
-    const {activeId, isActive} = this.props;
+    const { activeId, isActive } = this.props;
     const icons = [
       [
-        require("../../../img/icon-house.png"), require("../../../img/icon-house@2x.png"), require("../../../img/icon-house@3x.png")
+        require("../../../img/icon-house.png"),
+        require("../../../img/icon-house@2x.png"),
+        require("../../../img/icon-house@3x.png")
       ],
       [
-        require("../../../img/icon-diamond.png"), require("../../../img/icon-diamond@2x.png"), require("../../../img/icon-diamond@3x.png")
+        require("../../../img/icon-diamond.png"),
+        require("../../../img/icon-diamond@2x.png"),
+        require("../../../img/icon-diamond@3x.png")
       ],
-      [require("../../../img/icon-lookup.png"), require("../../../img/icon-lookup@2x.png"), require("../../../img/icon-lookup@3x.png")]
+      [
+        require("../../../img/icon-lookup.png"),
+        require("../../../img/icon-lookup@2x.png"),
+        require("../../../img/icon-lookup@3x.png")
+      ]
     ];
     return (
       <nav className="navigation">
@@ -33,12 +39,11 @@ class Navigation extends Component {
           {icons.map((icons, i) => (
             <li className="navigation__item">
               <NavigationItem
-                isActive={activeId == i
-                ? isActive
-                : false}
+                isActive={activeId === i ? isActive : false}
                 id={i}
                 onClick={this.handleClick}
-                icons={icons}/>
+                icons={icons}
+              />
             </li>
           ))}
         </ul>
