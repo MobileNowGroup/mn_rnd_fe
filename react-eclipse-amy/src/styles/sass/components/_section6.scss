@@ -1,0 +1,17 @@
+.section6-container {
+  height: 69.7rem;
+  @include respond(phone) {
+    height: 60rem;
+  };
+  background-color: $color-white;
+  // z-index: -1;
+  position: relative;
+
+  &__back-top {
+    position: absolute;
+    top: 23.9rem;
+    left: 7.1rem;
+    width: 5rem;
+    height: 5rem;
+  }
+}

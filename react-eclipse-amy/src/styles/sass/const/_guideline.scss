@@ -1,0 +1,46 @@
+.guideline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  background-color: red;
+  flex: 0 0 29%;
+  max-width: 29%;
+  @include respond(phone) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  &__img {
+    width: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  &__content {
+    background-color: $color-white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    @include respond(phone) {
+      height: 4rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-text-dark-2;
+  }
+
+  &__arrow_img {
+    margin-left: 2rem;
+    width: 0.8rem;
+    height: 1.4rem;
+  }
+}

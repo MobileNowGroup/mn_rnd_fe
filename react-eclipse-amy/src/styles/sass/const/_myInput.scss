@@ -1,0 +1,60 @@
+.myInput {
+  background-color: $color-white;
+  border-radius: 0.3rem;
+  width: 28.2rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+
+  &__input {
+    font-size: 1.6rem;
+    color: $color-text-dark;
+    height: 6rem;
+    width: 24rem;
+    position: relative;
+    left: 1rem;
+    top: 0;
+    border-style: none;
+    outline: medium;
+    //去除输入框边框
+    &::-webkit-input-placeholder {
+      /* WebKit*/
+      color: $color-text-dark;
+    }
+
+    &:-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: $color-text-dark;
+    }
+
+    &::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: $color-text-dark;
+    }
+
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      color: $color-text-dark;
+    }
+    // &::-webkit-input-placeholder,
+    // :-ms-input-placeholder {
+    //   color: red;
+    // }
+    // &:-moz-placeholder,
+    // ::-moz-placeholder, {
+    //   color: red;
+    //   opacity: 1;
+    // }
+  }
+
+  &__image {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: relative;
+    right: 1rem;
+  }
+}

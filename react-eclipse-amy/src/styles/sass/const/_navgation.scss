@@ -1,0 +1,75 @@
+.navigation {
+  &__list {
+    // background-color: red;
+    position: absolute;
+    right: 8%;
+    top: 5rem;
+    list-style-type: none;
+    list-style: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    @include respond(phone) {
+      display: none;
+    };
+  }
+
+  &__item {
+    margin: 0 1.5rem;
+    padding: 1.5rem 0;
+    width: 8rem;
+    height: 5rem;
+
+    &:last-child {
+      width: 13rem;
+      background-color: $color-primary-light;
+      border-radius: 0.6rem;
+      border: 0.1rem solid $color-primary-light;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @mixin navContent {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: $color-white;
+  }
+
+  &__loginImage {
+    margin-left: 1rem;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__lastContent {
+    @include navContent;
+  }
+
+  &__content {
+    @include navContent;
+    text-transform: uppercase;
+    display: block;
+
+    &:link,
+    &:visited {
+      border-style: none;
+    }
+
+    &:active::after,
+    &:hover::after {
+      content: '';
+      background: $color-primary;
+      width: 8rem;
+      height: 0.2rem;
+      display: block;
+      margin-top: 1rem;
+      align-content: center;
+      justify-content: center;
+    }
+  }
+}
