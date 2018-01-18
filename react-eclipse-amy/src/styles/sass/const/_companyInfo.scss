@@ -1,0 +1,29 @@
+.companyInfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  // background-color: red;
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__content {
+    padding: 0.6rem;
+    display: block;
+    fons-size: 1.2rem;
+    text-decoration: none;
+    color: $color-text-dark-3;
+    text-align: center;
+    // font-family: Montserrat-Regular;
+    &:link,
+    &:visited {
+      color: $color-text-dark-3;
+    }
+
+    &:active,
+    &:hover {
+      color: $color-text-dark;
+    }
+  }
+}

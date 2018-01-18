@@ -1,0 +1,78 @@
+.footer-container {
+  height: 35rem;
+  background-color: $color-white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__contact-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__contact-net {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-right: 10rem;
+    @include respond(phone) {
+      margin-right: 2rem;
+    }
+  }
+  &__contact-net-img {
+    height: 3.4rem;
+    width: 9.5rem;
+    @include respond(smaller-phone) {
+      width: 8rem;
+    }
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  &__contact-copyright {
+    margin-top: 4.1rem;
+    margin-right: 10rem;
+    @include respond(phone) {
+      margin-right: 2rem;
+    }
+    color: $color-text-dark-3;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: right; // font-family: Montserrat-Regular;
+  }
+  &__about-us {
+    margin-top: 8.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // background-color: red;
+  }
+  &__about-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  &__company-info1 {
+    margin-left: 10rem;
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
+  }
+  &__company-info2 {
+    margin-left: 8.3rem;
+    @include respond(smaller-phone) {
+      margin-left: 3rem;
+    }
+  }
+  &__contact-address {
+    margin-top: 4.5rem;
+    margin-left: 10rem;
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
+    font-size: 1.2rem;
+    text-align: left;
+    color: $color-text-dark-3;
+  }
+}

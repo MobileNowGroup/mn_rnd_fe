@@ -1,0 +1,30 @@
+.form {
+  margin-left: 13%;
+  margin-top: 5rem;
+  height: 6rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  @include respond(phone) {
+    width: 20%;
+    top: 45rem;
+  }
+
+  &__login_button {
+    width: 6.4rem;
+    height: 5.9rem;
+    background: $color-primary;
+    border-radius: 0.5rem;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__login_button_img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}

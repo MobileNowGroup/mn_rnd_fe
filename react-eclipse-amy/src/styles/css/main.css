@@ -1,0 +1,1143 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'FiraSans-Bold';
+  src: url("../fonts/FiraSans-Bold.otf");
+  font-weight: Bold;
+}
+
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url("../fonts/Gotham Bold.otf");
+  font-weight: Bold;
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url("../fonts/Montserrat-Bold.otf");
+  font-weight: Bold;
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url("../fonts/Montserrat-Bold.otf");
+  font-weight: Regular;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+html {
+  font-size: 62.5%;
+}
+
+@media (min-width: 112.5em) {
+  /* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+  html {
+    font-size: 100% !important;
+  }
+}
+
+@media (max-width: 87.5em) {
+  /* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+  html {
+    font-size: 56.25% !important;
+  }
+}
+
+@media (max-width: 62.5em) {
+  /* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+  html {
+    font-size: 40% !important;
+  }
+}
+
+@media (max-width: 50em) {
+  /* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+  html {
+    font-size: 25% !important;
+  }
+}
+
+@media (max-width: 28.125em) {
+  /* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+  html {
+    font-size: 15% !important;
+  }
+}
+
+/* line 37, /Users/amy/MobileNow/react/react-master/src/styles/sass/base/_base.scss */
+body {
+  box-sizing: border-box;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/page/_main.scss */
+.main {
+  background-color: #28c8c6;
+  z-index: -1000;
+}
+
+/* line 4, /Users/amy/MobileNow/react/react-master/src/styles/sass/page/_main.scss */
+.main__contact {
+  position: absolute;
+  top: 75rem;
+  width: 18.5rem;
+  height: 7.2rem;
+  right: -5.6rem;
+  border-radius: 0.5rem;
+  background-color: #8500d2;
+  /* Rotate div */
+  transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  /* Internet Explorer */
+  -moz-transform: rotate(270deg);
+  /* Firefox */
+  -webkit-transform: rotate(270deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(270deg);
+  /* Opera */
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 50em) {
+  /* line 4, /Users/amy/MobileNow/react/react-master/src/styles/sass/page/_main.scss */
+  .main__contact {
+    top: 57rem;
+    width: 12.5rem;
+    height: 7.2rem;
+    right: -2.6rem;
+  }
+}
+
+/* line 33, /Users/amy/MobileNow/react/react-master/src/styles/sass/page/_main.scss */
+.main__contact-text {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* line 2, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__list {
+  position: absolute;
+  right: 8%;
+  top: 5rem;
+  list-style-type: none;
+  list-style: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 50em) {
+  /* line 2, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+  .navigation__list {
+    display: none;
+  }
+}
+
+/* line 19, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__item {
+  margin: 0 1.5rem;
+  padding: 1.5rem 0;
+  width: 8rem;
+  height: 5rem;
+}
+
+/* line 25, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__item:last-child {
+  width: 13rem;
+  background-color: #a100ff;
+  border-radius: 0.6rem;
+  border: 0.1rem solid #a100ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 43, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__loginImage {
+  margin-left: 1rem;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 49, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__lastContent {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+/* line 53, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__content {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* line 58, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__content:link, .navigation__content:visited {
+  border-style: none;
+}
+
+/* line 63, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_navgation.scss */
+.navigation__content:active::after, .navigation__content:hover::after {
+  content: '';
+  background: #28c8c6;
+  width: 8rem;
+  height: 0.2rem;
+  display: block;
+  margin-top: 1rem;
+  align-content: center;
+  justify-content: center;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_form.scss */
+.form {
+  margin-left: 13%;
+  margin-top: 5rem;
+  height: 6rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_form.scss */
+  .form {
+    width: 20%;
+    top: 45rem;
+  }
+}
+
+/* line 15, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_form.scss */
+.form__login_button {
+  width: 6.4rem;
+  height: 5.9rem;
+  background: #28c8c6;
+  border-radius: 0.5rem;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 26, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_form.scss */
+.form__login_button_img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+@media (min-width: 112.5em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 28.125em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* line 22, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+.feature__icon {
+  width: 13.7rem;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 50em) {
+  /* line 22, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature__icon {
+    width: 11rem;
+  }
+}
+
+/* line 30, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+.feature__title {
+  width: 100%;
+  height: 1.2rem;
+  font-size: 1.7rem;
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 50em) {
+  /* line 30, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature__title {
+    font-size: 3rem;
+  }
+}
+
+/* line 44, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+.feature__content {
+  width: 90%;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #999;
+  overflow: auto;
+}
+
+@media (max-width: 50em) {
+  /* line 44, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_feature.scss */
+  .feature__content {
+    font-size: 2.4rem;
+  }
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+.guideline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  background-color: red;
+  flex: 0 0 29%;
+  max-width: 29%;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+  .guideline {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* line 16, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+.guideline__img {
+  width: 100%;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* line 22, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+.guideline__content {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+}
+
+@media (max-width: 50em) {
+  /* line 22, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+  .guideline__content {
+    height: 4rem;
+  }
+}
+
+/* line 34, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+.guideline__text {
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* line 41, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_guideline.scss */
+.guideline__arrow_img {
+  margin-left: 2rem;
+  width: 0.8rem;
+  height: 1.4rem;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_companyInfo.scss */
+.companyInfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 6, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_companyInfo.scss */
+.companyInfo__item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 11, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_companyInfo.scss */
+.companyInfo__content {
+  padding: 0.6rem;
+  display: block;
+  fons-size: 1.2rem;
+  text-decoration: none;
+  color: #999;
+  text-align: center;
+}
+
+/* line 19, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_companyInfo.scss */
+.companyInfo__content:link, .companyInfo__content:visited {
+  color: #999;
+}
+
+/* line 24, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_companyInfo.scss */
+.companyInfo__content:active, .companyInfo__content:hover {
+  color: #333;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_sectionTitle.scss */
+.section_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* line 8, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_sectionTitle.scss */
+.section_content__title {
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  width: 100%;
+  font-family: Montserrat-Bold;
+  margin-bottom: 1.5rem;
+}
+
+/* line 17, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_sectionTitle.scss */
+.section_content__describe {
+  text-align: center;
+  width: 90%;
+  font-size: 1.4rem;
+  overflow: hidden;
+  color: #999;
+  margin-bottom: 1.5rem;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput {
+  background-color: #fff;
+  border-radius: 0.3rem;
+  width: 28.2rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+/* line 13, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__input {
+  font-size: 1.6rem;
+  color: #333;
+  height: 6rem;
+  width: 24rem;
+  position: relative;
+  left: 1rem;
+  top: 0;
+  border-style: none;
+  outline: medium;
+}
+
+/* line 24, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__input::-webkit-input-placeholder {
+  /* WebKit*/
+  color: #333;
+}
+
+/* line 29, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #333;
+}
+
+/* line 34, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #333;
+}
+
+/* line 39, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #333;
+}
+
+/* line 54, /Users/amy/MobileNow/react/react-master/src/styles/sass/const/_myInput.scss */
+.myInput__image {
+  width: 1.8rem;
+  height: 1.8rem;
+  position: relative;
+  right: 1rem;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 0;
+  height: 13rem;
+  z-index: 10000;
+}
+
+/* line 6, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__home-button {
+  position: absolute;
+  left: 13%;
+  top: 5rem;
+  width: 6.8rem;
+  height: 6.8rem;
+}
+
+/* line 14, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-checkbox {
+  display: none;
+}
+
+/* line 18, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-button {
+  position: absolute;
+  right: 5rem;
+  top: 5rem;
+  width: 5rem;
+  height: 5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display: none;
+}
+
+@media (max-width: 50em) {
+  /* line 18, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+  .header__nav-button {
+    display: inline-block;
+  }
+}
+
+/* line 35, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__navbar-toggler-icon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url("../../images/menu-icon.png");
+}
+
+/* line 46, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav {
+  position: fixed;
+  top: 12rem;
+  right: 1rem;
+  height: 16rem;
+  width: 13rem;
+  display: none;
+  background-color: #fff;
+}
+
+/* line 55, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav:before {
+  content: '';
+  position: absolute;
+  top: -2.5rem;
+  right: 5.2rem;
+  border: 1rem solid transparent;
+  border-bottom: 1.5rem solid #fff;
+  width: 0;
+  height: 0;
+}
+
+/* line 67, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+/* line 80, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+/* line 88, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-content {
+  font-size: 5rem;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  color: #28c8c6;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-size: 100%;
+}
+
+/* line 98, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-content:active, .header__nav-content:hover {
+  color: #a100ff;
+}
+
+/* line 104, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_header.scss */
+.header__nav-checkbox:checked ~ .header__nav {
+  display: flex;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+.section1 {
+  margin-top: -13rem;
+  height: 93rem;
+  background-image: image-set("../../images/section1_bg.png" 1x, "../../images/section1_bg@2x.png" 2x, "../../images/section1_bg@3x.png" 3x);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+  .section1 {
+    height: 73rem;
+  }
+}
+
+/* line 23, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+.section1__content {
+  margin-top: 13rem;
+  margin-left: 13%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 30, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+.section1__title1 {
+  width: 50rem;
+  font-size: 5rem;
+  line-height: 5.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Montserrat-Bold;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 50em) {
+  /* line 30, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+  .section1__title1 {
+    line-height: 2.5rem;
+  }
+}
+
+/* line 42, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+.section1__title2 {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  width: 51rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+@media (max-width: 50em) {
+  /* line 42, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section1.scss */
+  .section1__title2 {
+    width: 31rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+.section2 {
+  width: 100%;
+  height: 54.2rem;
+  background-image: image-set("../../images/section2_image.png" 1x, "../../images/section2_image@2x.png" 2x, "../../images/section2_image@3x.png" 3x);
+  background-color: #ebeff3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  background-blend-mode: overlay;
+  position: relative;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+  .section2 {
+    height: 40rem;
+  }
+}
+
+/* line 22, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+.section2 .content {
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* line 31, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+.section2__title1 {
+  width: 100%;
+  font-size: 4rem;
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+  font-family: Gotham Bold;
+  margin-bottom: 1.5rem;
+}
+
+/* line 41, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+.section2__title2 {
+  width: 80%;
+  font-size: 1.4rem;
+  line-height: 0.73;
+  text-align: center;
+  color: #333;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* line 51, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+.section2__phone-image {
+  position: absolute;
+  bottom: 0;
+  width: 42rem;
+}
+
+@media (max-width: 28.125em) {
+  /* line 51, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section2.scss */
+  .section2__phone-image {
+    width: 80%;
+  }
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section3.scss */
+.section3 {
+  height: 72.5rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 28.125em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section3.scss */
+  .section3 {
+    height: 90rem;
+  }
+}
+
+/* line 12, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section3.scss */
+.section3__features {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container {
+  height: 75.6rem;
+  background-color: #f6f9fa;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* line 11, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__list {
+  width: 57rem;
+  height: 5.8rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  border: 0.1rem solid #28c8c6;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 50em) {
+  /* line 11, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+  .section4-container__list {
+    width: 90%;
+  }
+}
+
+/* line 28, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+/* line 36, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item:link, .section4-container__item:visited {
+  background-color: #fff;
+  color: #28c8c6;
+}
+
+/* line 42, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item.active, .section4-container__item:active, .section4-container__item:hover {
+  background-color: #28c8c6;
+}
+
+/* line 49, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__content {
+  display: inline-block;
+  width: 100%;
+  color: #28c8c6;
+  font-size: 1.4rem;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 0.4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Gotham Bold;
+}
+
+/* line 62, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item:hover .section4-container__content {
+  color: white;
+}
+
+/* line 66, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item.active .section4-container__content {
+  color: white;
+}
+
+/* line 70, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__item:active .section4-container__content {
+  color: white;
+}
+
+/* line 74, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section4.scss */
+.section4-container__guidelines {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container {
+  height: 89rem;
+  background-image: image-set("../../images/section5_bg_img.png" 1x, "../../images/section5_bg_img@2x.png" 2x, "../../images/section5_bg_img@3x.png" 3x);
+  background-repeat: no-repeat;
+  background-blend-mode: hard-light;
+  background-size: cover;
+  background-position: center;
+  background-color: #8500d2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  z-index: 100;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container {
+    height: 60rem;
+  }
+}
+
+/* line 23, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container__icon {
+  margin-left: 15%;
+  width: 17.7rem;
+}
+
+@media (max-width: 28.125em) {
+  /* line 23, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container__icon {
+    width: 12rem;
+  }
+}
+
+/* line 32, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container__content {
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 37, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container__title {
+  font-size: 5rem;
+  line-height: 5.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Montserrat-Bold;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 50em) {
+  /* line 37, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container__title {
+    line-height: 2.5rem;
+  }
+}
+
+/* line 48, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container__describe {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  width: 51rem;
+  color: #fff;
+}
+
+@media (max-width: 50em) {
+  /* line 48, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container__describe {
+    width: 19rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* line 58, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+.section5-container__computer-img {
+  position: absolute;
+  width: 60%;
+  bottom: -70%;
+  right: 20%;
+}
+
+@media (max-width: 50em) {
+  /* line 58, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container__computer-img {
+    width: 90%;
+    bottom: -50%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 28.125em) {
+  /* line 58, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section5.scss */
+  .section5-container__computer-img {
+    width: 90%;
+    bottom: -40%;
+    right: 10%;
+  }
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section6.scss */
+.section6-container {
+  height: 69.7rem;
+  background-color: #fff;
+  position: relative;
+}
+
+@media (max-width: 50em) {
+  /* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section6.scss */
+  .section6-container {
+    height: 60rem;
+  }
+}
+
+/* line 10, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_section6.scss */
+.section6-container__back-top {
+  position: absolute;
+  top: 23.9rem;
+  left: 7.1rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+/* line 1, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container {
+  height: 35rem;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 9, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__contact-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* line 14, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__contact-net {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-right: 10rem;
+}
+
+@media (max-width: 50em) {
+  /* line 14, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__contact-net {
+    margin-right: 2rem;
+  }
+}
+
+/* line 25, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__contact-net-img {
+  height: 3.4rem;
+  width: 9.5rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 28.125em) {
+  /* line 25, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__contact-net-img {
+    width: 8rem;
+  }
+}
+
+/* line 34, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__contact-copyright {
+  margin-top: 4.1rem;
+  margin-right: 10rem;
+  color: #999;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  text-align: right;
+}
+
+@media (max-width: 50em) {
+  /* line 34, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__contact-copyright {
+    margin-right: 2rem;
+  }
+}
+
+/* line 45, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__about-us {
+  margin-top: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* line 51, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__about-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* line 56, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__company-info1 {
+  margin-left: 10rem;
+}
+
+@media (max-width: 50em) {
+  /* line 56, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__company-info1 {
+    margin-left: 2rem;
+  }
+}
+
+/* line 62, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__company-info2 {
+  margin-left: 8.3rem;
+}
+
+@media (max-width: 28.125em) {
+  /* line 62, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__company-info2 {
+    margin-left: 3rem;
+  }
+}
+
+/* line 68, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+.footer-container__contact-address {
+  margin-top: 4.5rem;
+  margin-left: 10rem;
+  font-size: 1.2rem;
+  text-align: left;
+  color: #999;
+}
+
+@media (max-width: 50em) {
+  /* line 68, /Users/amy/MobileNow/react/react-master/src/styles/sass/components/_footer.scss */
+  .footer-container__contact-address {
+    margin-left: 2rem;
+  }
+}
+
+/*# sourceMappingURL=../css/main.map */

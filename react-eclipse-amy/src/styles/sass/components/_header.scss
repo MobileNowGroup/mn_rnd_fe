@@ -1,0 +1,107 @@
+.header {
+  @include container-position(0,$header-height);
+  // overflow: auto;
+  z-index: 10000;
+
+  &__home-button {
+    position: absolute;
+    left: 13%;
+    top: 5rem;
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+
+  &__nav-checkbox {
+    display: none;
+  }
+
+  &__nav-button {
+    position: absolute;
+    right: 5rem;
+    top: 5rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    display: none;
+    @include respond(phone) {
+      display: inline-block;
+    };
+  }
+
+  &__navbar-toggler-icon {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+    background-image: url("../../images/menu-icon.png");
+  }
+
+  &__nav {
+    position: fixed;
+    top: 12rem;
+    right: 1rem;
+    height: 16rem;
+    width: 13rem;
+    display: none;
+    background-color: $color-white;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -2.5rem;
+      right: 5.2rem;
+      border: 1rem solid transparent;
+      border-bottom: 1.5rem solid $color-white;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__nav-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+  }
+
+  &__nav-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  &__nav-content {
+    font-size: 5rem;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    color: $color-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-size: 100%;
+
+    &:active,
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+
+  &__nav-checkbox:checked ~ &__nav {
+    display: flex;
+  }
+}
