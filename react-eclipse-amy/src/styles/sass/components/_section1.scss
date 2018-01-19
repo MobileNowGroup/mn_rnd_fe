@@ -1,9 +1,10 @@
 .section1 {
   margin-top: -$header-height;
   height: 93rem;
-  @include respond(phone) {
-    height: 73rem;
+  @include respond(tab-port) {
+    height: 65rem;
   }
+
   background-image: image-set(
     "../../images/section1_bg.png" 1x,
     "../../images/section1_bg@2x.png" 2x,
@@ -12,8 +13,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  // background-clip: content-box;
   overflow: hidden;
-  z-index: 10;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -21,7 +22,7 @@
   align-items: flex-start;
 
   &__content {
-    margin-top: $header-height;
+    margin-top: 5%;
     margin-left: 13%;
     display: flex;
     flex-direction: column;

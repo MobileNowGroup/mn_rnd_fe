@@ -22,11 +22,11 @@ html {
   }
   @include respond(tab-port) {
     // width < 1000?
-    font-size: 40% !important; //1 rem = 8px, 8/16 = 50%
+    font-size: 45% !important; //1 rem = 8px, 8/16 = 50%
   }
   @include respond(phone) {
-    // width < 800?
-    font-size: 25% !important; //1 rem = 8px, 8/16 = 50%
+    // width < 600?
+    font-size: 30% !important; //1 rem = 8px, 8/16 = 50%
   }
   @include respond(smaller-phone) {
     //width < 450

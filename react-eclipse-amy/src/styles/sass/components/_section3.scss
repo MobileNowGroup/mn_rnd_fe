@@ -1,5 +1,8 @@
 .section3 {
   height: 72.5rem;
+  @include respond(tab-port) {
+    height: 55rem;
+  }
   @include respond(smaller-phone) {
     height: 90rem;
   }

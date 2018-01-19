@@ -1,7 +1,10 @@
 .section5-container {
   height: 89rem;
-  @include respond(phone) {
+  @include respond(tab-port) {
     height: 60rem;
+  }
+  @include respond(smaller-phone) {
+    height: 50rem;
   }
   background-image: image-set(
     "../../images/section5_bg_img.png" 1x,
@@ -18,7 +21,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  z-index: 100;
+  z-index: 15;
 
   &__icon {
     margin-left: 15%;
@@ -58,16 +61,17 @@
   &__computer-img {
     position: absolute;
     width: 60%;
+    height: auto;
     bottom: -70%;
     right: 20%;
     @include respond(phone) {
-      width: 90%;
-      bottom: -50%;
+      width: 60%;
+      bottom: -40%;
       right: 10%;
     }
     @include respond(smaller-phone) {
-      width: 90%;
-      bottom: -40%;
+      width: 80%;
+      bottom: -55%;
       right: 10%;
     }
   }

@@ -14,13 +14,18 @@
 }
 
 //容器基本位置
-@mixin container-position($top, $height) {
-  position: absolute;
-  left: 0;
-  right: 0;
+@mixin empty-container {
   width: 100%;
-  top: $top;
-  height: $height;
+  height: 30rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: $color-primary;
+    font-size: 14rem;
+  }
 }
 
 //1em = 16px
@@ -32,9 +37,9 @@
     } //450px
   }
   @if $breakpoint==phone {
-    @media (max-width: 50em) {
+    @media (max-width: 43.75em) {
       @content;
-    } //800px
+    } //700px
   }
   @if $breakpoint==tab-port {
     @media (max-width: 62.5em) {

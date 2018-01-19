@@ -1,10 +1,9 @@
 .section6-container {
   height: 69.7rem;
-  @include respond(phone) {
-    height: 60rem;
-  };
+  @include respond(tab-port) {
+    height: 50rem;
+  }
   background-color: $color-white;
-  // z-index: -1;
   position: relative;
 
   &__back-top {

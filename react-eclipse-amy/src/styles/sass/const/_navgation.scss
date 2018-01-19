@@ -2,7 +2,7 @@
   &__list {
     // background-color: red;
     position: absolute;
-    right: 8%;
+    right: 4%;
     top: 5rem;
     list-style-type: none;
     list-style: none;
@@ -13,7 +13,7 @@
     padding: 0;
     @include respond(phone) {
       display: none;
-    };
+    }
   }
 
   &__item {
@@ -21,6 +21,7 @@
     padding: 1.5rem 0;
     width: 8rem;
     height: 5rem;
+    text-decoration: none;
 
     &:last-child {
       width: 13rem;
@@ -31,6 +32,7 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      text-decoration: none;
     }
   }
   @mixin navContent {
@@ -54,6 +56,7 @@
     @include navContent;
     text-transform: uppercase;
     display: block;
+    text-decoration: none;
 
     &:link,
     &:visited {
@@ -62,7 +65,7 @@
 
     &:active::after,
     &:hover::after {
-      content: '';
+      content: "";
       background: $color-primary;
       width: 8rem;
       height: 0.2rem;
@@ -70,6 +73,10 @@
       margin-top: 1rem;
       align-content: center;
       justify-content: center;
+    }
+
+    &.active {
+      color: $color-primary;
     }
   }
 }

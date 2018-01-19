@@ -1,11 +1,15 @@
-
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
 @import "base/fonts";
 @import "base/base";
 
-@import "page/main";
+@import "pages/main";
+@import "pages/about";
+@import "pages/login";
+@import "pages/blog";
+@import "pages/studio";
+@import "pages/pricing";
 
 @import "const/navgation";
 @import "const/form";

@@ -1,5 +1,14 @@
 .section4-container {
   height: 75.6rem;
+  @include respond(tab-port) {
+    height: 60rem;
+  }
+  @include respond(phone) {
+    height: 100rem;
+  }
+  @include respond(smaller-phone) {
+    height: 75rem;
+  }
   background-color: #f6f9fa;
   display: flex;
   flex: 1;
