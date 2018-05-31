@@ -1,0 +1,6 @@
+framework module Pods_BLEManager {
+  umbrella header "Pods-BLEManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
