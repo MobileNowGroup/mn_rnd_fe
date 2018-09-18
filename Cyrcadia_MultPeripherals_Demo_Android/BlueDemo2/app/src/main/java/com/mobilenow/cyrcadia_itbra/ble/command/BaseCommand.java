@@ -15,7 +15,7 @@ public abstract class BaseCommand {
 
     public abstract void sendCommand();
 
-    public void sendCommand(BluetoothDevice device) {
+    public void sendCommand(String mac) {
     }
 
     public void parseCommand(String data, ObservableEmitter emitter) {

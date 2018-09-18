@@ -5,14 +5,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
-import android.bluetooth.le.ScanCallback;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -23,15 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import no.nordicsemi.android.support.v18.scanner.BluetoothLeScannerCompat;
-//import no.nordicsemi.android.support.v18.scanner.ScanCallback;
-//import no.nordicsemi.android.support.v18.scanner.ScanFilter;
-//import no.nordicsemi.android.support.v18.scanner.ScanResult;
-//import no.nordicsemi.android.support.v18.scanner.ScanSettings;
+import no.nordicsemi.android.support.v18.scanner.ScanFilter;
+import no.nordicsemi.android.support.v18.scanner.ScanResult;
+import no.nordicsemi.android.support.v18.scanner.ScanSettings;
+import no.nordicsemi.android.support.v18.scanner.ScanCallback;
 
 
 public class BleConnectManager {
     private static BleConnectManager instance = null;
-    private boolean mIsScanning = false;
     private final Handler mHandler = new Handler();
     private final static long SCAN_DURATION = 15000;
     private Context context;
@@ -57,14 +53,13 @@ public class BleConnectManager {
     public void connectItBra() {
 //        UARTManager.getInstance(context).start();
         if (isBLEEnabled()) {
-            if (ITBraBleManager.getInstance().isITBraBound()) {
-                ITBraBleManager.getInstance().reConnect();
-            }
+//            if (ITBraBleManager.getInstance().isITBraBound()) {
+//                ITBraBleManager.getInstance().reConnect();
+//            }
             startScan();
         }
     }
 
-    private BluetoothLeScanner scanner;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
         @Override
@@ -76,14 +71,11 @@ public class BleConnectManager {
                 //通过此方法获取搜索到的蓝牙设备
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // 获取搜索到的蓝牙绑定状态,看看是否是已经绑定过的蓝牙
-                Log.d("ddd", "Found Device " + device.getName() + ":" + device.getAddress() + ","
-                        + "status = " + device.getBondState());
-                if (device != null && device.getName() != null && device.getName().startsWith
-                        (BLE_IT_BRA_NAME)) {
+//                Log.d("ddddd", "Found Device " + device.getName() + ":" + device.getAddress() + "," + "status = " + device.getBondState());
+                if (device != null && device.getName() != null && device.getName().startsWith(BLE_IT_BRA_NAME)) {
 //                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
 //                            () != null) {
-                    Log.d("BleManager", "device name = " + device.getName() + "," + "mac = " +
-                            device.getAddress());
+                    Log.d("BleManager", "device name = " + device.getName() + "," + "mac = " + device.getAddress());
                     ITBraBleManager.getInstance().connectDevice(device.getAddress());
                 }
                 // 搜索完成
@@ -113,14 +105,11 @@ public class BleConnectManager {
     };
 
     private void startScan() {
-        Log.d("BleManager", "startScan --------------------");
+//        Log.d("BleManager", "startScan --------------------");
         if (!PermissionUtils.isGranted(Manifest.permission.ACCESS_COARSE_LOCATION)) {
             PermissionUtils.permission(Manifest.permission.ACCESS_COARSE_LOCATION).request();
             return;
         }
-//        if (scanner != null) {
-//            return;
-//        }
         IntentFilter mFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         context.registerReceiver(mReceiver, mFilter);
         // 注册搜索完时的receiver
@@ -129,102 +118,87 @@ public class BleConnectManager {
         //蓝牙连接状态发生改变时,接收状态
         mFilter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         context.registerReceiver(mReceiver, mFilter);
-        BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context
-                .BLUETOOTH_SERVICE);
+        startDiscovery();
+    }
+
+    private void startDiscovery() {
+
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        scanner = mBluetoothAdapter.getBluetoothLeScanner();
         mBluetoothAdapter.startDiscovery();
-
-//        final ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings
-//                .SCAN_MODE_LOW_LATENCY).setReportDelay(1000).setUseHardwareBatchingIfSupported
-//                (false).build();
-//        final List<ScanFilter> filters = new ArrayList<>();
-//        scanner.startScan(callback);
-
-        mIsScanning = true;
-//        mHandler.postDelayed(() -> {
-//            if (mIsScanning) {
-//                stopScan();
-//            }
-//        }, SCAN_DURATION);
+        mHandler.postDelayed(() -> {
+            stopScan();
+        }, SCAN_DURATION);
     }
 
     /**
      * Stop scan if user tap Cancel button
      */
     private void stopScan() {
-        if (mIsScanning) {
-            Log.d("BleManager", "stopScan--------- ");
-//            scanner = BluetoothLeScannerCompat.getScanner();
-            scanner.stopScan(callback);
-            mIsScanning = false;
-            scanner = null;
-            mHandler.postDelayed(() -> {
-                if (!mIsScanning) {
-                    if (isBLEEnabled()) {
-                        startScan();
-                    }
-                }
-            }, 2000);
-        }
+//        Log.d("ddddd", "stopScan--------- ");
+//            final BluetoothLeScannerCompat scanner = BluetoothLeScannerCompat.getScanner();
+//            scanner.stopScan(scanCallback);
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothAdapter.cancelDiscovery();
+        mHandler.postDelayed(() -> {
+            if (isBLEEnabled()) {
+//                Log.d("ddddd", "startDiscovery--------- ");
+                startDiscovery();
+            }
+        }, 5000);
     }
 
-    ScanCallback callback = new ScanCallback() {
-        @Override
-        public void onBatchScanResults(List<android.bluetooth.le.ScanResult> results) {
-            if (results != null && results.size() > 0) {
-                for (int i = 0; i < results.size(); i++) {
-//                    Log.d("itbra", "device name = " + results.get(i).getDevice().getName
-//                            () + "," + "mac = " + results.get(i).getDevice().getAddress());
-                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
-                            () != null && results.get(i).getDevice().getName().startsWith
-                            (BLE_IT_BRA_NAME)) {
-//                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
-//                            () != null) {
-                        Log.d("BleManager", "device name = " + results.get(i).getDevice().getName
-                                () + "," + "mac = " + results.get(i).getDevice().getAddress());
-                        ITBraBleManager.getInstance().connectDevice(results.get(i).getDevice()
-                                .getAddress());
-                    }
-                }
-            }
-        }
-    };
-
-//    private ScanCallback scanCallback = new ScanCallback() {
+//    ScanCallback callback = new ScanCallback() {
 //        @Override
-//        public void onScanResult(final int callbackType, final ScanResult result) {
-//        }
-//
-//        @Override
-//        public void onBatchScanResults(final List<ScanResult> results) {
-//
+//        public void onBatchScanResults(List<android.bluetooth.le.ScanResult> results) {
 //            if (results != null && results.size() > 0) {
 //                for (int i = 0; i < results.size(); i++) {
-////                    Log.d("itbra", "device name = " + results.get(i).getDevice().getName
-////                            () + "," + "mac = " + results.get(i).getDevice().getAddress());
-////                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
-////                            () != null && results.get(i).getDevice().getName().startsWith
-////                            (BLE_IT_BRA_NAME)) {
+//                    Log.d("itbra", "device name = " + results.get(i).getDevice().getName() + ","
+//                            + "mac = " + results.get(i).getDevice().getAddress());
 //                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
-//                            () != null) {
-//                        Log.d("BleManager", "device name = " + results.get(i).getDevice().getName
-//                                () + "," + "mac = " + results.get(i).getDevice().getAddress());
-//                        ITBraBleManager.getInstance().connectDevice(results.get(i).getDevice()
-//                                .getAddress());
+//                            () != null && results.get(i).getDevice().getName().startsWith
+//                            (BLE_IT_BRA_NAME)) {
+//                        if (results.get(i).getDevice() != null && results.get(i).getDevice()
+//                                .getName() != null) {
+//                            Log.d("BleManager", "device name = " + results.get(i).getDevice()
+//                                    .getName() + "," + "mac = " + results.get(i).getDevice()
+//                                    .getAddress());
+//                            ITBraBleManager.getInstance().connectDevice(results.get(i).getDevice
+//                                    ().getAddress());
+//                        }
 //                    }
 //                }
 //            }
 //        }
-//
-//        @Override
-//        public void onScanFailed(final int errorCode) {
-//        }
 //    };
 
+    private ScanCallback scanCallback = new ScanCallback() {
+        @Override
+        public void onScanResult(final int callbackType, final ScanResult result) {
+        }
+
+        @Override
+        public void onBatchScanResults(final List<ScanResult> results) {
+
+            if (results != null && results.size() > 0) {
+                for (int i = 0; i < results.size(); i++) {
+                    Log.d("dddd", "device name = " + results.get(i).getDevice().getName() + "," + "mac = " + results.get(i).getDevice().getAddress());
+                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName() != null && results.get(i).getDevice().getName().startsWith(BLE_IT_BRA_NAME)) {
+//                    if (results.get(i).getDevice() != null && results.get(i).getDevice().getName
+//                            () != null) {
+                        Log.d("dddd", "device name = " + results.get(i).getDevice().getName() + "," + "mac = " + results.get(i).getDevice().getAddress());
+                        ITBraBleManager.getInstance().connectDevice(results.get(i).getDevice().getAddress());
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void onScanFailed(final int errorCode) {
+        }
+    };
+
     private boolean isBLEEnabled() {
-        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService
-                (Context.BLUETOOTH_SERVICE);
+        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
         assert bluetoothManager != null;
         final BluetoothAdapter adapter = bluetoothManager.getAdapter();
         return adapter != null && adapter.isEnabled();

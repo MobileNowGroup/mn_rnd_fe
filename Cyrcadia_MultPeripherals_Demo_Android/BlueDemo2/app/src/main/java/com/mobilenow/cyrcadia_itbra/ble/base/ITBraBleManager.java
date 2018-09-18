@@ -57,8 +57,8 @@ public class ITBraBleManager implements UARTManagerCallbacks {
         addCommandAndSend(new GetDeviceStatusCommand(), e);
     }
 
-    public void getDeviceStatus(BluetoothDevice device, ObservableEmitter e) {
-        addCommandAndSend(device, new GetDeviceStatusCommand(), e);
+    public void getDeviceStatus(String mac, ObservableEmitter e) {
+        addCommandAndSend(mac, new GetDeviceStatusCommand(), e);
     }
 
     public void setDeviceTemperatureRange(ObservableEmitter e) {
@@ -122,24 +122,23 @@ public class ITBraBleManager implements UARTManagerCallbacks {
         commandList.put(command.getCommandID(), command);
     }
 
-    private void addCommandAndSend(BluetoothDevice device, BaseCommand command, ObservableEmitter
-            e) {
+    private void addCommandAndSend(String mac, BaseCommand command, ObservableEmitter e) {
         int size = commandList.size();
         if (size > 2) {
             new Thread(() -> {
                 try {
                     Thread.sleep(100 + (size - 1) * 200);
-                    command.sendCommand(device);
+                    command.sendCommand(mac);
 
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
             }).start();
         } else {
-            command.sendCommand();
+            command.sendCommand(mac);
         }
-        callBackes.put(command.getCommandID(), e);
-        commandList.put(command.getCommandID(), command);
+        callBackes.put(command.getCommandID() + mac, e);
+        commandList.put(command.getCommandID() + mac, command);
     }
 
     private void addNotifyCommand(BaseCommand command) {
@@ -154,8 +153,7 @@ public class ITBraBleManager implements UARTManagerCallbacks {
     }
 
     public void connectDevice(String deviceAddress) {
-        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService
-                (Context.BLUETOOTH_SERVICE);
+        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
         final BluetoothAdapter adapter = bluetoothManager.getAdapter();
         mBluetoothDevice = adapter.getRemoteDevice(deviceAddress);
         mUARTManager.connect(mBluetoothDevice);
@@ -171,18 +169,16 @@ public class ITBraBleManager implements UARTManagerCallbacks {
 
     public boolean isITBraBound() {
         mBluetoothDeviceList.clear();
-        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService
-                (Context.BLUETOOTH_SERVICE);
+        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
         final BluetoothAdapter adapter = bluetoothManager.getAdapter();
         Set<BluetoothDevice> boundBleSet = adapter.getBondedDevices();
         if (boundBleSet != null && boundBleSet.size() > 0) {
             for (BluetoothDevice device : boundBleSet) {
                 Log.d("BleManager", "isITBraBound addr = " + device.getAddress());
                 int boundStatus = device.getBondState();
-                if (device.getName() != null && device.getName().equalsIgnoreCase
-                        (BleConnectManager.BLE_IT_BRA_NAME)) {
+                if (device.getName() != null && device.getName().equalsIgnoreCase(BleConnectManager.BLE_IT_BRA_NAME)) {
 //                    mBluetoothDevice = device;
-//                    mBluetoothDeviceList.add(device);
+                    mBluetoothDeviceList.add(device);
 //                    return true;
                 }
             }
@@ -207,8 +203,8 @@ public class ITBraBleManager implements UARTManagerCallbacks {
         mUARTManager.setGattCallbacks(this);
     }
 
-    public void send(BluetoothDevice device, String text) {
-        mUARTManager.send(device, Command.COMMAND_HEAD + text);
+    public void send(String mac, String text) {
+        mUARTManager.send(mac, Command.COMMAND_HEAD + text);
     }
 
     public void send(String text) {
@@ -291,35 +287,36 @@ public class ITBraBleManager implements UARTManagerCallbacks {
             isInit = true;
 
         }
-        BleAPI.getDeviceStatus(gatt.getDevice()).subscribe(new DefaultObserver<DeviceStatusModel>
-                () {
-            @Override
-            public void onNext(DeviceStatusModel deviceStatusModel) {
-                if (deviceStatusModel != null && deviceStatusModel.getStatusByte() ==
-                        DeviceStatusModel.StatusByte.WARMUP) {
-//                    ActivityUtils.startActivity(PreScanCheckActivity.class);
-                }
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        });
+//        BleAPI.getDeviceStatus(gatt.getDevice()).subscribe(new DefaultObserver<DeviceStatusModel>
+//                () {
+//            @Override
+//            public void onNext(DeviceStatusModel deviceStatusModel) {
+//                if (deviceStatusModel != null && deviceStatusModel.getStatusByte() ==
+//                        DeviceStatusModel.StatusByte.WARMUP) {
+////                    ActivityUtils.startActivity(PreScanCheckActivity.class);
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//        });
     }
 
 
     @Override
     public void onDataReceived(BluetoothDevice device, String data) {
         String commandID = Command.getCommandIDFromRes(data);
+        String mac = device.getAddress();
         if (commandID != null) {
-            BaseCommand baseCommand = commandList.get(commandID);
+            BaseCommand baseCommand = commandList.get(commandID + mac);
             if (baseCommand != null) {
-                ObservableEmitter emitter = callBackes.get(commandID);
+                ObservableEmitter emitter = callBackes.get(commandID + mac);
                 if (!baseCommand.isNotify()) {
-                    commandList.remove(commandID);
+                    commandList.remove(commandID + mac);
                     if (emitter != null) {
-                        callBackes.remove(commandID);
+                        callBackes.remove(commandID + mac);
                     }
                 }
                 baseCommand.parseCommand(data, emitter);

@@ -1,7 +1,5 @@
 package com.mobilenow.cyrcadia_itbra.ble.command;
 
-import android.bluetooth.BluetoothDevice;
-
 import com.mobilenow.cyrcadia_itbra.ble.base.ITBraBleManager;
 
 public abstract class DefaultGetCommand extends BaseCommand {
@@ -17,8 +15,8 @@ public abstract class DefaultGetCommand extends BaseCommand {
     }
 
     @Override
-    public void sendCommand(BluetoothDevice device) {
-        ITBraBleManager.getInstance().send(device, getCommandID() + Command.COMMAND_EMPTY_DATA);
+    public void sendCommand(String mac) {
+        ITBraBleManager.getInstance().send(mac, getCommandID() + Command.COMMAND_EMPTY_DATA);
     }
 
     public abstract String getCommandID();

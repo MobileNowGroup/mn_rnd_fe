@@ -32,8 +32,8 @@ public class BleAPI {
         return Observable.create(e -> ITBraBleManager.getInstance().getDeviceStatus(e));
     }
 
-    public static Observable<DeviceStatusModel> getDeviceStatus(BluetoothDevice device) {
-        return Observable.create(e -> ITBraBleManager.getInstance().getDeviceStatus(device, e));
+    public static Observable<DeviceStatusModel> getDeviceStatus(String mac ) {
+        return Observable.create(e -> ITBraBleManager.getInstance().getDeviceStatus(mac, e));
     }
 
     public static Observable<Object> setDeviceTemperatureRange() {

@@ -9,6 +9,7 @@ public class BlueModel {
     BluetoothDevice device;
     private int times = 0;
     private long startTime;
+    private String deviceStatus;
 
     public BlueModel(BluetoothGatt gatt, int mConnectionState, BluetoothDevice device, long
             startTime) {
@@ -58,4 +59,20 @@ public class BlueModel {
         this.mConnectionState = mConnectionState;
     }
 
+    public String getDeviceStatus() {
+        return deviceStatus;
+    }
+
+    public void setDeviceStatus(String deviceStatus) {
+        this.deviceStatus = deviceStatus;
+    }
+    int count =0;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }

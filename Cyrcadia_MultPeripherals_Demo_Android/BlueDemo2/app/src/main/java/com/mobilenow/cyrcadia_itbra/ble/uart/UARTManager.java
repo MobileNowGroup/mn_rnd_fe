@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.mobilenow.cyrcadia_itbra.BlueModel;
@@ -24,18 +25,15 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
     /**
      * Nordic UART Service UUID
      */
-    private final static UUID UART_SERVICE_UUID = UUID.fromString
-            ("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
+    private final static UUID UART_SERVICE_UUID = UUID.fromString("6E400001-B5A3-F393-E0A9-E50E24DCCA9E");
     /**
      * RX characteristic UUID
      */
-    private final static UUID UART_RX_CHARACTERISTIC_UUID = UUID.fromString
-            ("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
+    private final static UUID UART_RX_CHARACTERISTIC_UUID = UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E");
     /**
      * TX characteristic UUID
      */
-    private final static UUID UART_TX_CHARACTERISTIC_UUID = UUID.fromString
-            ("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
+    private final static UUID UART_TX_CHARACTERISTIC_UUID = UUID.fromString("6E400003-B5A3-F393-E0A9-E50E24DCCA9E");
     /**
      * The maximum packet size is 20 bytes.
      */
@@ -60,16 +58,26 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
     @Override
     protected BleManagerGattCallback getGattCallback(String addr) {
         GattCallBack callBack = new GattCallBack();
+        if (mGattCallBackMap.get(addr) != null) {
+            mGattCallBackMap.remove(addr);
+        }
         mGattCallBackMap.put(addr, callBack);
         return callBack;
     }
+
+    @Override
+    protected BleManagerGattCallback findGattCallback(String addr) {
+        return mGattCallBackMap.get(addr);
+    }
+
     boolean isStart = true;
+
     public void start() {
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (isStart){
+                while (isStart) {
                     connect();
                     try {
                         Thread.sleep(2000);
@@ -81,8 +89,9 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
         }).start();
 
     }
-    public void stop(){
-        isStart=false;
+
+    public void stop() {
+        isStart = false;
     }
 
     /**
@@ -116,29 +125,32 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
             if (mRXCharacteristic != null) {
                 final int rxProperties = mRXCharacteristic.getProperties();
                 writeRequest = (rxProperties & BluetoothGattCharacteristic.PROPERTY_WRITE) > 0;
-                writeCommand = (rxProperties & BluetoothGattCharacteristic
-                        .PROPERTY_WRITE_NO_RESPONSE) > 0;
+                writeCommand = (rxProperties & BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE) > 0;
 
                 // Set the WRITE REQUEST type when the characteristic supports it. This will
                 // allow to send long write (also if the characteristic support it).
                 // In case there is no WRITE REQUEST property, this manager will divide texts
                 // longer then 20 bytes into up to 20 bytes chunks.
-                if (writeRequest)
-                    mRXCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+                if (writeRequest) mRXCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
             }
-            return mRXCharacteristic != null && mTXCharacteristic != null && (writeRequest ||
-                    writeCommand);
+            return mRXCharacteristic != null && mTXCharacteristic != null && (writeRequest || writeCommand);
         }
 
         @Override
         protected void onDeviceDisconnected(final BluetoothDevice device) {
             mRXCharacteristic = null;
             mTXCharacteristic = null;
+            if (mGattCallBackMap.get(device.getAddress()) != null) {
+                BluetoothGatt gatt = getConnectDeviceGatt(device.getAddress());
+                if (gatt != null) {
+                    gatt.disconnect();
+                    mGattCallBackMap.remove(device.getAddress());
+                }
+            }
         }
 
         @Override
-        public void onCharacteristicWrite(final BluetoothGatt gatt, final
-        BluetoothGattCharacteristic characteristic) {
+        public void onCharacteristicWrite(final BluetoothGatt gatt, final BluetoothGattCharacteristic characteristic) {
             // When the whole buffer has been sent
             final byte[] buffer = mOutgoingBuffer;
             if (mBufferOffset == buffer.length) {
@@ -151,17 +163,17 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
                 mOutgoingBuffer = null;
             } else { // Otherwise...
                 final int length = Math.min(buffer.length - mBufferOffset, MAX_PACKET_SIZE);
-                enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, mBufferOffset, length,
-                        gatt));
+                enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, mBufferOffset, length, gatt));
                 mBufferOffset += length;
+                Log.i(TAG, "onCharacteristicWrite ");
             }
         }
 
         @Override
-        public void onCharacteristicNotified(final BluetoothGatt gatt, final
-        BluetoothGattCharacteristic characteristic) {
+        public void onCharacteristicNotified(final BluetoothGatt gatt, final BluetoothGattCharacteristic characteristic) {
             final String data = ParserUtils.parse(characteristic);
             LogUtils.d("@@@ onCharacteristicNotified data = " + data);
+            Log.d("dddd", gatt.getDevice().getAddress() + ",  data = " + data);
             mCallbacks.onDataReceived(gatt.getDevice(), data);
         }
 
@@ -170,32 +182,28 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
          *
          * @param text the text to be sent
          */
-        public void send(BluetoothDevice device, final String text) {
-            LogUtils.d("ddd", "command = " + text);
+        public void send(String mac, final String text) {
             // Are we connected?
             if (mRXCharacteristic == null) return;
 
             // An outgoing buffer may not be null if there is already another packet being sent. We
             // do nothing in this case.
-            if (!TextUtils.isEmpty(text) && mOutgoingBuffer == null) {
+            if (!TextUtils.isEmpty(text)) {
                 final byte[] buffer = mOutgoingBuffer = hexStringToByte(text);
                 mBufferOffset = 0;
 
                 // Depending on whether the characteristic has the WRITE REQUEST property or not, we
                 // will either send it as it is (hoping the long write is implemented),
                 // or divide it into up to 20 bytes chunks and send them one by one.
-                final boolean writeRequest = (mRXCharacteristic.getProperties() &
-                        BluetoothGattCharacteristic.PROPERTY_WRITE) > 0;
+                final boolean writeRequest = (mRXCharacteristic.getProperties() & BluetoothGattCharacteristic.PROPERTY_WRITE) > 0;
 
                 if (!writeRequest) { // no WRITE REQUEST property
                     final int length = Math.min(buffer.length, MAX_PACKET_SIZE);
                     mBufferOffset += length;
-                    enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, 0, length,
-                            getGattByDeviceAddr(device.getAddress())));
+                    enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, 0, length, getGattByDeviceAddr(mac)));
                 } else { // there is WRITE REQUEST property, let's try Long Write
                     mBufferOffset = buffer.length;
-                    enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, 0, buffer.length,
-                            getGattByDeviceAddr(device.getAddress())));
+                    enqueue(Request.newWriteRequest(mRXCharacteristic, buffer, 0, buffer.length, getGattByDeviceAddr(mac)));
                 }
             }
         }
@@ -227,9 +235,9 @@ public class UARTManager extends BleManager<UARTManagerCallbacks> {
     public void send(final String text) {
     }
 
-    public void send(BluetoothDevice device, final String text) {
-        if (mGattCallBackMap.get(device.getAddress()) != null) {
-            mGattCallBackMap.get(device.getAddress()).send(device, text);
+    public void send(String mac, final String text) {
+        if (mGattCallBackMap.get(mac) != null) {
+            mGattCallBackMap.get(mac).send(mac, text);
         }
     }
 

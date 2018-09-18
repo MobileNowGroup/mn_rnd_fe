@@ -27,12 +27,13 @@ public class BlueAdapter extends RecyclerView.Adapter<BlueAdapter.ViewHolder> {
         TextView tv_name;
         TextView tv_mac;
         TextView tv_status;
-
+        TextView tv_get;
         public ViewHolder(View view) {
             super(view);
             tv_name = view.findViewById(R.id.tv_name);
             tv_mac = view.findViewById(R.id.tv_mac);
             tv_status = view.findViewById(R.id.tv_status);
+            tv_get = view.findViewById(R.id.tv_get);
         }
     }
 
@@ -44,6 +45,10 @@ public class BlueAdapter extends RecyclerView.Adapter<BlueAdapter.ViewHolder> {
     public void setmDataList(List<BlueModel> mDataList) {
         this.mDataList = mDataList;
         notifyDataSetChanged();
+    }
+
+    public List<BlueModel> getmDataList() {
+        return mDataList;
     }
 
     @NonNull
@@ -63,6 +68,7 @@ public class BlueAdapter extends RecyclerView.Adapter<BlueAdapter.ViewHolder> {
         if (mode != null) {
             holder.tv_mac.setText(mode.getDevice().getAddress());
             holder.tv_name.setText(mode.getDevice().getName());
+            holder.tv_get.setText(mode.getDeviceStatus());
             if (mode.getmConnectionState() == BlueStatus.STATE_INIT) {
                 holder.tv_status.setText("准备连接");
             } else if (mode.getmConnectionState() == BlueStatus.STATE_CONNECTING) {

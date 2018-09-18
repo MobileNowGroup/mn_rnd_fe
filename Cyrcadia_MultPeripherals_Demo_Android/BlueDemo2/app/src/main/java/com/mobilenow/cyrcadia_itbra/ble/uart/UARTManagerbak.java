@@ -63,6 +63,11 @@ public class UARTManagerbak extends BleManager<UARTManagerCallbacks> {
         return mGattCallback;
     }
 
+    @Override
+    protected BleManagerGattCallback findGattCallback(String addr) {
+        return null;
+    }
+
     /**
      * BluetoothGatt callbacks for connection/disconnection, service discovery, receiving
      * indication, etc
